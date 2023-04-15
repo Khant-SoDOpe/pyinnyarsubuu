@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Essential Sex Education</title>
+  
+    <link rel="icon" href="../static/images/favicon.png">
+    <link rel="canonical"     href="https://getbootstrap.com/docs/5.0/examples/navbars/">
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    
+  	<!-- Google font for Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="../static/css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/EssentialSexEducation.css">
+
+    <!-- Global Javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript" src="../static/js/index.js"></script>
+</head>
+<body>
+     <audio
+    controls="controls"
+	    src="../static/audio/sexedu.mp3" id="noreading1" preload="auto">
+	        Your browser does not support the
+	        <code>audio</code> element.
+   </audio>
+  {% include 'header.html' %}
+	<section class="ESxeduBodypart3">
+		<div class="container text-center">
+			<h1 class="text-center headtext mt-5">Essential Knowledge</h1>
+      <link rel="icon" href="../static/images/favicon.png">
+			<h3 class="text-center headtext">Sex Education</h3>
+			<img class="imgx text-center mt-5" src="../static/images/sexEducation.jpg">
+		</div>
+		<div class="container">
+			<h2 class="mt-5">Intoduction: The Sex Education</h2>
+			<p class="text-center mt-5">When was the last time you used algebra in real life? If you are not an engineer or a scientist, then Nowhere! As terrible as it was for some students to do it, they still did it and nobody stopped them. So there should not be an issue for giving sex education to young minds. Knowing about your own body is our right and the parents have the responsibility to provide with them the knowledge and awareness a young mind needs to know. Access to comprehensive sex education is a human right. Society can no longer passively leave it to streets or the internet to brainwash the kid’s mind with incomplete knowledge and set sexual standard values.</p>
+		</div>
+		<div class="container">
+			<h2 class="mt-5">Meaning of Sex Education</h2>
+			<p class="text-center mt-5">Sex education is a comprehensive set of knowledge and process of learning the emotional, physical and social aspects of sexuality. Sex education should include information about puberty, menstruation, contraceptives, condoms, sexual violence prevention, sexual orientation, gender identity and body image. Sex education will provide the importance of own well being and health and others, it gives better understanding and the protection of the rights throughout their lives. People have so many different conceptions about sex education. Many people think teaching children sex education is equivalent to permitting them to engage in sexual intercourse, which is not true.<br>Engaging in sexual intercourse is their choice and if they are, they should be aware of the consequences and how to prevent diseases and unintended pregnancy. Having knowledge, skills, values will empower them to realize their health and well being and their dignity and have respectful social and sexual relationships. Sex education should treat sexual development as a normal human development. Young people have the right to live a healthy life and the society has the responsibility to create an environment for them and yield them with comprehensive Sex education which will help them to make healthy decisions. But this is not enough, Children are perplexed and demand honest answers. Comprehensive sex education should provide honest, age-appropriate informations. </p>
+		</div>
+		<div class="container mb-5">
+			<h2 class="mt-5">Need To Give Sex Education By The Parents</h2>
+			<p class="text-center mt-5">Sex is already taught over the internet in a poorly manner. Children are curious, they gather information about sex before the parents can even imagine. Therefore, parents should take the initiative to teach their children Sex education from a young age and continuing the education as the child grows, this also creates a sense of security between the child and the parents. Having open and free communication about sex, can make children openly talk about the other trials of adolescence such as anxiety, depression, use of drugs, alcohol as well as sexual issues with their parents. Parents should not be relied on school for sex education as depending on where you live, there can be a possibility that education is not given priority or even is considered a taboo to even talk about it. Parents need to ensure that the right information is given to their kids. Parents keeping silence about sex education can be dangerous as the child will eventually learn about it from its peers and over the internet. Parents are the core people who accompany the child as he/she grows up. They need continuous guidance and counselling.<br><br>
+
+			Sex Education helps the kids understand their bodies and feel optimistic about the body. Many parents prepare their daughter for menstrual periods and son for his first nocturnal emission. But some don’t which later on instill a feeling of fear and distress in the mind of a teenager. Unexpected onset of blood immediately creates connectivity to a disease. Mothers need to change their wrong attitudes towards menstruation. Boys need to be taught something about menstruation too. This helps later when a man has to cope up with his wife’s pain, mood swings and premenstrual tension. Parents should be the first source of information to their child. </p>
+		</div>
+	</section>
+  {% include 'footer.html' %}
+</body>
+  <script>
+    var audio1 = $("#noreading1")[0];
+     $(document).on('keypress',function(e) {
+          console.log(e.which);
+            if(e.which == 13) {
+                console.log('You pressed enter!');
+                audio1.play();
+            }
+        }); 
+  </script>
+</html>

@@ -1,0 +1,17 @@
+body{
+	background-color: #117F98;
+	color: #fff;
+}
+.imgx{
+	text-align: center;
+}
+.container p{
+	font-size: 23px;
+  font-family: 'Poppins', sans-serif;
+  text-align: justify;
+  font-weight: 300;
+}
+.headtext2{
+	text-decoration: underline;
+    font-family: 'Poppins', sans-serif;
+}

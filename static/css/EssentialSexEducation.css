@@ -1,0 +1,17 @@
+body{
+	background-color: #117F98 !important;
+	color: #fff;
+}
+h1{
+    color: #fff;
+  text-align: center;
+}
+.imgx{
+	width: 300px;
+	text-align: center;
+}
+.container p{
+	font-size: 23px;
+    text-align: justify;
+  font-weight: 300;
+}

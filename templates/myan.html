@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myanmar Menu</title>
+    <link rel="icon" href="../static/images/favicon.png">
+
+    <link rel="canonical"     href="https://getbootstrap.com/docs/5.0/examples/navbars/">
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../static/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    
+  	<!-- Google font for Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="../static/css/navbar.css" rel="stylesheet">
+     <link rel="stylesheet" href="../static/css/footer.css" />
+    <link rel="stylesheet" href="../static/css/myan.css" />
+
+    <!-- Global Javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+   <audio
+    controls="controls"
+	    src="../static/audio/grade10myanmar.mp3" id="myanmar1" preload="auto">
+	        Your browser does not support the
+	        <code>audio</code> element.
+   </audio>
+  {% include 'header.html' %}
+    <div class="container-fluid">
+        <h2 class="title">Formal Education</h2>
+        <p class="para">Myanmar Subject</p>
+        <div class="row py-5 my-3">
+            <div class="col-3 offset-md-2">
+                <img src="../static/images/img18.png">
+                <p class="about">ရေသည်ပြဇာတ်</p>
+                <button class="btn button rounded"><a href="/yaythalpyazat">Read More</a></button>
+            </div>
+            <div class="col-4 offset-md-1">
+                <img src="../static/images/img17.png">
+                <p class="about">မဟော်သဓာဇာတ်တော်</p>
+                <button class="btn rounded button"><a href="/mahawthahtar">Read More</a></button>
+            </div>
+        </div>
+    </div>
+   {% include 'footer.html' %}
+</body>
+  <script>
+  	var audio1 = $("#myanmar1")[0];
+    var myanPage = true;
+     $(document).on('keypress',function(e) {
+		  console.log(e.which);
+		    if(e.which == 13 && myanPage == true) {
+		        console.log('You pressed enter!');
+		        audio1.play();
+		    }else if(e.which == 49) {
+          window.location.href = "/yaythalpyazat";
+        }else if(e.which == 50) {
+          window.location.href = "/mahawthahtar";
+        }
+		}); 
+  </script>
+</html>

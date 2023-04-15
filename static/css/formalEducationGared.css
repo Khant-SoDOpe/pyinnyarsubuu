@@ -1,0 +1,25 @@
+.headtext{
+	color: #C1E2E7 !important;
+}
+body{
+	background-color: #117F98;
+}
+.col-md-5, .col-md-7{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.button{
+	background-color: #C5E4F1 !important;
+	border-radius: 10px !important;
+    border: none !important;
+}
+.button>a{
+    color: #0E1237 !important;
+}
+.button:hover{
+    background-color: #0E1237 !important;
+}
+.button>a:hover{
+    color: #c5e4f1 !important;
+}

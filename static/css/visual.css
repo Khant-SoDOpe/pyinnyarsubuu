@@ -1,0 +1,48 @@
+body{
+    background-color: #C1E2E7 !important;
+}
+.banner{
+    background-image: url('../static/images/bg3.png');
+    background-repeat: repeat-x;
+    height: 525px;
+    background-position: center bottom;
+}
+p,a{
+    font-family: 'Poppins',sans-serif;
+}
+.button>a{
+    text-decoration: none;
+    color: #C1E2E7;
+}
+.bannerPara{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    align-self: center;
+    margin-left: 200px;
+}
+.bannerPara>p{
+    color: #012A50;
+}
+.learnTogether{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    color: #012A50;
+    align-self: center;
+}
+.button{
+    background-color: #012A50 !important;
+    color: #C1E2E7 !important;
+    font-style: normal;
+    width: 180px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+}
+.col-3{
+    margin-right: 40px;
+    margin-bottom: 30px;
+}

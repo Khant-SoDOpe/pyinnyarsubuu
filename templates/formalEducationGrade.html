@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Grade</title>
+    <link rel="icon" href="../static/images/favicon.png">
+    <link rel="canonical"     href="https://getbootstrap.com/docs/5.0/examples/navbars/">
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    
+  	<!-- Google font for Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="../static/css/navbar.css" rel="stylesheet">
+     <link rel="stylesheet" href="../static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/formalEducationGared.css">
+
+    <!-- Global Javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript" src="../static/js/index.js"></script>
+</head>
+<body style="background-image:url(../static/images/gradeGlass2.png);background-repeat:repeat;">
+  <audio
+    controls="controls"
+	    src="../static/audio/formalEDUAll.mp3" id="audio" preload="auto">
+	        Your browser does not support the
+	        <code>audio</code> element.
+	</audio> 
+	<audio
+    controls="controls"
+	    src="../static/audio/grade6.mp3" id="audio1" preload="auto">
+	        Your browser does not support the
+	        <code>audio</code> element.
+	</audio>
+	<audio
+    controls="controls"
+	    src="../static/audio/grade7.mp3" id="audio2" preload="auto">
+	        Your browser does not support the
+	        <code>audio</code> element.
+	</audio>
+	<audio
+    controls="controls"
+	    src="../static/audio/grade8.mp3" id="audio4" preload="auto">
+	        Your browser does not support the
+	        <code>audio</code> element.
+	</audio>
+	<audio
+    controls="controls"
+	    src="../static/audio/grade9.mp3" id="audio5" preload="auto">
+	        Your browser does not support the
+	        <code>audio</code> element.
+	</audio>
+	<audio
+    controls="controls"
+	    src="../static/audio/grade10.mp3" id="audio6" preload="auto">
+	        Your browser does not support the
+	        <code>audio</code> element.
+	</audio>
+  {% include 'header.html' %}
+	<section class="FeduBodypart2" style="background-image:url(../static/images/gradeGlass1.png);background-repeat: repeat;">
+		<div class="container text-center mb-5">
+			<div class="row">
+				<h1 class="text-center headtext mt-4 mb-4">Formal Education</h1>
+				<div class="col-md-5 offset-1">
+					<img src="../static/images/FormalGrade.png" class="rounded float-start">
+					<button type="button" class="btn button mt-4"><a href="/FormalEducation/Subjects">Grade-6</a></button>
+				</div>
+				<div class="col-md-5 offset-1">
+					<img src="../static/images/FormalGrade.png" class="rounded float-end">
+					<button type="button" class="btn button mt-4"><a href="/FormalEducation/Subjects">Grade-7</a></button>
+				</div>
+				<div class="col-md-7 offset-3">
+					<img src="../static/images/FormalGrade.png" class="rounded mx-auto d-block">
+					<button type="button" class="btn button mt-4"><a href="/FormalEducation/Subjects">Grade-8</a></button>
+				</div>
+				<div class="col-md-5 offset-1">
+					<img src="../static/images/FormalGrade.png" class="rounded float-start">
+					<button type="button" class="btn button mt-4"><a href="/FormalEducation/Subjects">Grade-9</a></button>
+				</div>
+				<div class="col-md-5 offset-1">
+					<img src="../static/images/FormalGrade.png" class="rounded float-end">
+					<button type="button" class="btn button mt-4"><a href="/FormalEducation/Subjects">Grade-10</a></button>
+				</div>
+			</div>
+		</div>
+	</section>
+  {% include 'footer.html' %}
+</body>
+  <script>
+  	var audio1 = $("#audio")[0];
+    var audio2 = $("#audio1")[0];
+    var audio3 = $("#audio2")[0];
+    var audio4 = $("#audio3")[0];
+    var audio5 = $("#audio4")[0];
+    var audio6 = $("#audio5")[0];
+    var gradePage = true;
+     $(document).on('keypress',function(e) {
+		  console.log(e.which);
+		    if(e.which == 13 && gradePage == true) {
+		        audio1.play();
+            gradePage = false;
+		    }else if(e.which == 13 && gradePage == false) {
+          window.location.href = "/FormalEducation/Subjects";
+		    }else if(e.which == 54) {
+		       audio2.play();
+		    }else if(e.which == 55) {
+		      audio3.play();
+		    }else if(e.which == 56) {
+		      audio4.play();
+		    }else if(e.which == 57) {
+		      audio5.play();
+		    }else if(e.which == 48) {
+		      audio6.play();
+          window.location.href = "/FormalEducation/Subjects";
+		    }
+		}); 
+  </script>
+</html>

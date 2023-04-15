@@ -1,0 +1,82 @@
+audio{
+    display: none;
+}
+a{
+  text-decoration: none;
+}
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+body{
+  font-family: 'poppins', sans-serif;
+}
+.btn{
+  background-color: #117F98;
+}
+.signin{
+  color: white;
+}
+a{
+  text-decoration: none;
+}
+.navbar{
+  background-color: #C5E4F1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 0;
+}
+.nav-link{
+  color: #012A50;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.nav-link:hover{
+  border-bottom: 1px solid #012A50;
+    color: #012A50;
+}
+.signin:hover{
+  color: white;
+}
+.loginBtn{
+  margin-right: 70px;
+}
+.collapse{
+  margin-left: 5%;
+  padding: 10px 0 10px 0;
+}
+.In{
+  margin-right: 20px;
+}
+.logo{
+  width: 87px;
+  height: 87px;
+  margin-left: 70px;
+}
+@media screen and (min-width: 768px) {
+  .nav-link{
+    margin-left: 20px;
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .nav-link{
+    margin-left: 10px;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .nav-link{
+    margin-left: 50px;
+  }
+}
+
