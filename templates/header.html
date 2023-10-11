@@ -25,9 +25,13 @@
             </li>
           </ul>
           <div class="loginBtn">
-            <button type="button" class="btn In"><a href="/loginpage" class="signin">Log In</a></button>
-            <button type="button" class="btn"><a href="/signuppage" class="signin">Sign Up</a></button>
-          </div>
+                {% if session.authenticated %}
+                <button type="button" class="btn In"><a href="/logout" class="signin">Log Out</a></button>
+                {% else %}
+                <button type="button" class="btn In"><a href="/loginpage" class="signin">Log In</a></button>
+                <button type="button" class="btn"><a href="/signuppage" class="signin">Sign Up</a></button>
+                {% endif %}
+            </div>
         </div>
       </div>
     </nav>

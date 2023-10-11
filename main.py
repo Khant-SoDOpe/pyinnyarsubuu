@@ -1,72 +1,101 @@
-from flask import Flask, render_template, request
-from random import randint
-import csv
+from flask import Flask, render_template, request, redirect, url_for, session
+import redis
+from functools import wraps
+import os
 
 app = Flask(__name__)
 
+def require_auth(view):
+  @wraps(view)
+  def wrapped_view(*args, **kwargs):
+    if 'authenticated' in session:
+      return view(*args, **kwargs)
+    return redirect(url_for('loginpage'))
+  return wrapped_view
+
+r = redis.Redis(
+  host=os.environ['REDIS_HOST'],
+  port=os.environ['REDIS_PORT'],
+  password=os.environ['REDIS_PASSWORD']
+)
+
 @app.route("/")
 def index():
-    return render_template("index.html")
+  return render_template("index.html")
+
+@app.route("/alive")
+def alive():
+  return "Alive"
 
 @app.route("/PHOSIS")
+@require_auth
 def PHOSIS():
-    return render_template("photosynthesis.html")
+  return render_template("photosynthesis.html")
 
 
 @app.route("/HIC")
+@require_auth
 def hic():
-    return render_template("hear.html")
+  return render_template("hear.html")
 
 
 @app.route("/VIC")
+@require_auth
 def vic():
-    return render_template("visual.html")
+  return render_template("visual.html")
 
 
 #-------------------------------------essential
 @app.route("/essential")
 def essentialpage():
-    return render_template("essential.html")
+  return render_template("essential.html")
 
 @app.route("/essential/earH")
+@require_auth
 def earH():
-    return render_template("earHealth.html")
+  return render_template("earHealth.html")
 
 @app.route("/essential/literature")
+@require_auth
 def essentialliterature():
-    return render_template("EssentialLiterature.html")
+  return render_template("EssentialLiterature.html")
 
 
 @app.route("/essential/sexeducation")
+@require_auth
 def essentialsexeducation():
-    return render_template("EssentialSexEducation.html")
+  return render_template("EssentialSexEducation.html")
 
 
 # --------------------------------------------steam
 @app.route("/steam")
 def steam():
-    return render_template("steam.html")
+  return render_template("steam.html")
 
 
 @app.route("/steam/Sci")
+@require_auth
 def steamSci():
-    return render_template("steamScience.html")
+  return render_template("steamScience.html")
 
 
 @app.route("/steam/PST")
+@require_auth
 def steamPST():
-    return render_template("photosynthesis.html")
+  return render_template("photosynthesis.html")
 
 
 #---------------------------------------------formal education
 @app.route("/yaythalpyazat")
+@require_auth
 def yaythalpyazat():
-    return render_template("yaythalpyazat.html")
+  return render_template("yaythalpyazat.html")
 
 
 @app.route("/mahawthahtar")
+@require_auth
 def mahawthahtar():
-    return render_template("myanmar.html")
+  return render_template("myanmar.html")
 
 
 @app.route("/science")
@@ -110,71 +139,58 @@ def loginpage():
 def login():
     email = request.form.get("Email")
     password = request.form.get("Password")
-    print(email, password)
 
-    with open("data.csv", "r") as data_file:
-        all_data = csv.DictReader(data_file)
+    # Retrieve user data from Redis
+    user_data = r.hgetall(email)
 
-        for emails in all_data:
-            if emails['Email'] == email:
-                if emails['Password'] == password:
-                    letter = 'Sucessfully Login!'
-                    return render_template('show.html', contact=letter)
-                else:
-                    letter = 'Pls Check Your Password!'
-                    return render_template('show.html', contact=letter)
-
+    if user_data:
+        if user_data[b'Password'].decode('utf-8') == password:
+            # Set the user as authenticated in the session
+            session['authenticated'] = True
+            letter = 'Successfully Login!'
+            return render_template('show.html', contact=letter)
+        else:
+            letter = 'Please Check Your Password!'
+            return render_template('show.html', contact=letter)
+    else:
         letter = 'No Account Found!'
         return render_template('show.html', contact=letter)
 
 
+# ----------------------------------------------------------signup
 @app.route("/signup", methods=["POST"])
 def signup():
-    def add(email, password, name):
-        user_data = {}
-
-        user_data["Name"] = name
-        user_data["Email"] = email
-        user_data["Password"] = password
-
-        print(user_data)
-
-        fieldnames = []
-        for key in user_data:
-            fieldnames.append(key)
-
-        with open("data.csv", "a") as data_file:
-            writer = csv.DictWriter(data_file, fieldnames)
-            writer.writerow(user_data)
-
     name = request.form.get("Name")
     email = request.form.get("Email")
     password = request.form.get("Password")
     password2 = request.form.get("Password2")
-    permission = 'allowed'
+
     if password == password2:
-        with open('data.csv', "r") as append_file:
-            data = csv.DictReader(append_file)
+        # Check if the user already exists
+        if r.exists(email):
+            letter = "Already Have an Account!"
+            return render_template('show.html', contact=letter)
 
-            for emails in data:
-                print(emails)
-                if emails['Email'] == email:
-                    permission = 'disallowed'
-
-            if permission == 'allowed':
-                add(email, password, name)
-                print('reach sucess')
-                letter = "Sucessfully created!"
-                return render_template('show.html', contact=letter)
-            else:
-                letter = "Already Have a account!"
-                return render_template('show.html', contact=letter)
+        # Store user data in Redis
+        user_data = {
+            'Name': name,
+            'Email': email,
+            'Password': password
+        }
+        r.hmset(email, user_data)
+        
+        letter = "Successfully Created!"
+        return render_template('show.html', contact=letter)
     else:
-        letter = "Pls check your password!"
+        letter = "Please Check Your Password!"
         return render_template('show.html', contact=letter)
 
-
-# ----------------------------------------------------------signup
+@app.route("/logout")
+@require_auth
+def logout():
+  session.pop('authenticated', None)  # Remove the 'authenticated' key from the session
+  return redirect(url_for('loginpage'))
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=randint(2000, 9000))
+  app.secret_key = my_secret = os.environ['APP_SECRECT_KEY']
+  app.run(host='0.0.0.0', port=5000) 
