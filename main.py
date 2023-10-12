@@ -27,10 +27,8 @@ def index():
 def alive():
   return "Alive"
 
-@app.route("/PHOSIS")
-@require_auth
-def PHOSIS():
-  return render_template("photosynthesis.html")
+
+
 
 
 @app.route("/HIC")
@@ -78,21 +76,35 @@ def steam():
 def steamSci():
   return render_template("steamScience.html")
 
-
-@app.route("/steam/PST")
+@app.route("/steam/Sci/PHOSIS")
 @require_auth
-def steamPST():
+def PHOSIS():
   return render_template("photosynthesis.html")
 
 
 #---------------------------------------------formal education
-@app.route("/yaythalpyazat")
+
+@app.route("/FormalEducation")
+def formaleducation():
+  return render_template("formalEducationGrade.html")
+
+
+@app.route("/FormalEducation/Subjects")
+def FormalEducationSubjects():
+  return render_template("FormalEducation.html")
+
+
+@app.route("/FormalEducation/Subjects/myanmar")
+def myanmar():
+  return render_template("myan.html")
+
+@app.route("/FormalEducation/Subjects/myanmar/yaythalpyazat")
 @require_auth
 def yaythalpyazat():
   return render_template("yaythalpyazat.html")
 
 
-@app.route("/mahawthahtar")
+@app.route("/FormalEducation/Subjects/myanmar/mahawthahtar")
 @require_auth
 def mahawthahtar():
   return render_template("myanmar.html")
@@ -100,23 +112,7 @@ def mahawthahtar():
 
 @app.route("/science")
 def science():
-    return render_template("science.html")
-
-
-@app.route("/myanmar")
-def myanmar():
-    return render_template("myan.html")
-
-
-@app.route("/FormalEducation")
-def formaleducation():
-    return render_template("formalEducationGrade.html")
-
-
-@app.route("/FormalEducation/Subjects")
-def FormalEducationSubjects():
-    return render_template("FormalEducation.html")
-
+  return render_template("science.html")
 
 #----------------------------------signup,login
 @app.route("/signuppage")
