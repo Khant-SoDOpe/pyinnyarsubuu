@@ -93,7 +93,7 @@ def FormalEducationSubjects():
   return render_template("FormalEducation.html")
 
 
-@app.route("/FormalEducation/Subjects/myanmar")
+@app.route("/myanmar")
 def myanmar():
   return render_template("myan.html")
 
