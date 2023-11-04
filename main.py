@@ -97,13 +97,13 @@ def FormalEducationSubjects():
 def myanmar():
   return render_template("myan.html")
 
-@app.route("yaythalpyazat")
+@app.route("/yaythalpyazat")
 @require_auth
 def yaythalpyazat():
   return render_template("yaythalpyazat.html")
 
 
-@app.route("mahawthahtar")
+@app.route("/mahawthahtar")
 @require_auth
 def mahawthahtar():
   return render_template("myanmar.html")
