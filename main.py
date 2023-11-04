@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import redis
 from functools import wraps
-import os
 
 app = Flask(__name__)
 
@@ -14,9 +13,9 @@ def require_auth(view):
   return wrapped_view
 
 r = redis.Redis(
-  host=os.environ['REDIS_HOST'],
-  port=os.environ['REDIS_PORT'],
-  password=os.environ['REDIS_PASSWORD']
+  host= "civil-toad-41431.upstash.io",
+  port= 41431,
+  password= "8014df124c984ed48d6e0bbbc9ea6153"
 )
 
 @app.route("/")
@@ -188,5 +187,5 @@ def logout():
   return redirect(url_for('loginpage'))
 
 if __name__ == "__main__":
-  app.secret_key = my_secret = os.environ['APP_SECRECT_KEY']
+  app.secret_key = my_secret = "handsomeKhant"
   app.run(host='0.0.0.0', port=5000) 
