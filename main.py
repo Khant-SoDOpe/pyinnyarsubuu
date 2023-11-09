@@ -13,10 +13,11 @@ def require_auth(view):
   return wrapped_view
 
 r = redis.Redis(
-  host= "civil-toad-41431.upstash.io",
-  port= 41431,
-  password= "8014df124c984ed48d6e0bbbc9ea6153"
-)
+4  host='trusting-piglet-33353.upstash.io',
+5  port=33353,
+6  password='2b0cec338b554064b5b51666a96ee89c',
+7  ssl=True
+8)
 
 @app.route("/")
 def index():
