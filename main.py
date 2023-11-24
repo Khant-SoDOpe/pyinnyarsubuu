@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, send_file
 import redis
 from functools import wraps
 
@@ -27,7 +27,11 @@ def index():
 def alive():
   return "Alive"
 
-
+@app.route('/sitemap.xml')
+def sitemap():
+    # Assuming 'sitemap.xml' is in the same directory as your Flask app
+  filename = 'sitemap.xml'
+  return send_file(filename, mimetype='application/xml')
 
 
 
